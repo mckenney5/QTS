@@ -1,0 +1,35 @@
+﻿'Handles file io
+Imports System.IO 'again, again ... lol
+Class File_IO_Class
+    Dim EC As New Error_Class
+    ReadOnly Name As String = "+File"
+    Dim Func As String = Nothing
+    
+    Public Function Found(ByVal File_Name As String) As Boolean
+        Return File.Exists(File_Name)
+    End Function
+
+    Public Function Write(ByVal File_Name As String, ByVal Text_To_Write As String) As Boolean
+        Try
+            If Found(File_Name) = True Then
+                File.AppendAllText(File_Name, Text_To_Write)
+            Else
+                Return False
+            End If
+        Catch
+            EC.Er(Err.Description)
+            Return False
+        End Try
+        Return True
+    End Function
+    
+    Public Function KeyWords(ByVal Line As String) As Boolean 'Used for every class to determine usable functions
+        If Line.StartsWith("Found") = True Then
+            Return True
+        ElseIf Line.StartsWith("Write") = True Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+End Class
