@@ -1,0 +1,11 @@
+Include Console
+Include Text
+Main
+	Say "What File Should I Remove Enters From?"
+	Set File = Read()
+	Write(Replace(File, ~[ENTER], " "))
+	Say "Done"
+	Pause
+	Exit 0
+End Main
+
