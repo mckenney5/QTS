@@ -1,0 +1,6 @@
+Include Console
+Include Crypto
+Main
+    //do cool things
+    Exit 0
+End Main
