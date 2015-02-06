@@ -4,6 +4,18 @@ Public Class Cryptography_Class
     Dim EC As New Error_Class
     ReadOnly Name As String = "+Crypto"
     Dim Func As String = Nothing
+
+    Public Function KeyWords(ByVal Word As String) As Boolean
+        Select Case Word
+            Case "Encrypt"
+                Return True
+            Case "Decrypt"
+                Return True
+            Case Else
+                Return False
+        End Select
+    End Function
+
     Public Function Encrypt(ByVal Input As String, ByVal Key As System.Security.SecureString) As String
         Key.MakeReadOnly()
         Dim ptr As IntPtr
@@ -41,7 +53,7 @@ Public Class Cryptography_Class
         End Try
     End Function
 
-    Private Function Decrypt(ByVal Input As String, ByVal Key As System.Security.SecureString) As String
+    Public Function Decrypt(ByVal Input As String, ByVal Key As System.Security.SecureString) As String
         Key.MakeReadOnly()
         Dim ptr As IntPtr
         ptr = Runtime.InteropServices.Marshal.SecureStringToBSTR(Key)

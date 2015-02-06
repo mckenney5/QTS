@@ -5,6 +5,18 @@ Class Text_Class
     Dim EC As New Error_Class
     ReadOnly Name As String = "+Text"
     Dim Func As String = Nothing
+
+    Public Function KeyWords(ByVal Word As String) As Boolean
+        Select Case Word
+            Case "Replace"
+                Return True
+            Case "Find"
+                Return True
+            Case Else
+                Return False
+        End Select
+    End Function
+
     Public Function Replace_(ByVal Input As String, ByVal Target As String, ByVal Replacement As String) As String
         Try
             Input = Input.Replace(Target, Replacement)

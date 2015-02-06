@@ -9,6 +9,24 @@ Class Vars_Class
     Public Const ENTER As Char = vbCrLf
     Public Const TAB As Char = vbTab
 
+    Public Function KeyWords(ByVal Word As String) As Boolean 'this class is more tricky due to the public vars
+        Select Case Word
+            Case "~[UserName]"
+                Return True
+            Case "~[OperatingSystem]" 'this may be deleted
+                Return True
+            Case "~[OS]"
+                Return True
+            Case "~[ENTER]"
+                Return True
+            Case "~[TAB]"
+                Return True
+            Case "Info"
+                Return True
+            Case Else
+                Return False
+        End Select
+    End Function
 
     Public Function Info() As Boolean
         Try

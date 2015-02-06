@@ -3,6 +3,22 @@ Imports System.Console
 Class Console_Class
     ReadOnly Name As String = "+Con"
     Dim Func As String = Nothing
+
+    Public Function KeyWords(ByVal Word As String) As Boolean
+        Select Case Word
+            Case "Say"
+                Return True
+            Case "Read"
+                Return True
+            Case "TColor"
+                Return True
+            Case "BColor"
+                Return True
+            Case Else
+                Return False
+        End Select
+    End Function
+
     Public Function Say(ByVal Text As String, Optional ByVal Color As ConsoleColor = Nothing) As Integer
         If Verbose_Mode = True Then
             Console.WriteLine(Name & ".Say Called with: (" & Text & " || " & Color & ")")

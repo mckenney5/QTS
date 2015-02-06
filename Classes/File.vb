@@ -4,6 +4,18 @@ Class File_IO_Class
     Dim EC As New Error_Class
     ReadOnly Name As String = "+File"
     Dim Func As String = Nothing
+
+    Public Function KeyWords(ByVal Word As String) As Boolean
+        Select Case Word
+            Case "Found"
+                Return True
+            Case "Write"
+                Return True
+            Case Else
+                Return False
+        End Select
+    End Function
+
     Public Function Found(ByVal File_Name As String) As Boolean
         Return File.Exists(File_Name)
     End Function
