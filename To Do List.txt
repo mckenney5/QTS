@@ -1,5 +1,6 @@
-Add keywords function to all user classes
+Add keywords function to all user classes	[Done]
 Have Run check all loaded classes if they have said function
 Add a tcp class!
 Add Math.Round to Math_Class
 Add Pause Somewhere
+Add a good README file
