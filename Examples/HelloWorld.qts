@@ -1,6 +1,11 @@
 Include Console
+
 Main
+
 	Say "Hello World"
+
 	Pause
+
 	Exit 0
+
 End Main

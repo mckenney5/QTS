@@ -1,8 +1,13 @@
 Include Console
+
 Set Stuff = "Hello World"
+
 Main
+
 	Say Stuff
+
 	Pause
+
 	Exit 0
 End Main
 
