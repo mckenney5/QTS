@@ -4,8 +4,3 @@ Main
 	Pause
 	Exit 0
 End Main
-
-#include <stdio.h>
-Main{
-printf("hi");
-}

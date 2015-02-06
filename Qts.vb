@@ -45,7 +45,7 @@ Module Interpreter
         Console.Title = "QTS"
         Func = ".Main" & vbTab & vbTab
         If Verbose_Mode = True Then
-            Console.WriteLine(Name & Func & "called with " & Args.Length & " arg(s)")
+            Console.WriteLine(Name & Func & "called with " & Args.Length & " args")
         End If
         If Args.Length <> 0 Then 'Command Line Variables
             For i As UInteger = 0 To Args.Length
@@ -63,19 +63,19 @@ Module Interpreter
                     Console.WriteLine("Verbose mode on!")
                 ElseIf Args(i) = "-v" Or Args(i) = "--version" Then
                     Console.WriteLine("Version " & Ver)
-                ElseIf Args(i) = "-n" Or Args(i) = "--nowarning" Then
+                ElseIf Args(i) = "-n" Or Args(i) = "--no-warning" Then
                     Treat_Warns_As_Errors = True
                     Console.WriteLine("Treating warnings as errors!")
                 ElseIf Args(i) = "-c" Or Args(i) = "--checkonly" Then
                     Check_Only = True
                     Console.WriteLine("Checking file only, not running it!")
-                ElseIf Args(i) = "-iw" Or Args(i) = "--ignorewarnings" Then
+                ElseIf Args(i) = "-iw" Or Args(i) = "--ignore-warnings" Then
                     EC.Ignore_Warnings = True
                     WriteLine("Supressing all warnings!")
-                ElseIf Args(i) = "-ii" Or Args(i) = "--ignoreinfo" Then
+                ElseIf Args(i) = "-ii" Or Args(i) = "--ignore-info" Then
                     EC.Ignore_Info = True
                     WriteLine("Supressing all recommendations!")
-                ElseIf Args(i) = "-ie" Or Args(i) = "--ignoreerrors" Then
+                ElseIf Args(i) = "-ie" Or Args(i) = "--ignore-errors" Then
                     EC.Ignore_Errors = True
                     WriteLine("Skipping lines with errors! (NOT RECOMMENDED)")
                 Else
@@ -194,15 +194,12 @@ Module Interpreter
                                 Check_Var(Source(i), i)
                             End If
                         End If
+                        i += 1
                     Loop
                     
-                    If EC.Errors.Count <> 0 Then
-                        For i As UInteger = 0 to EC.Errors.Count
-                            'Do something?
-                        Next
+                    If ErrorOccured = True Then
                         QTS_Exit(0)
                     End If
-                    Run(Source)
                 Catch
                     If Verbose_Mode = True Then
                         Console.WriteLine(Name & Func & "Threw an error")
@@ -213,9 +210,6 @@ Module Interpreter
                     End If
                 End Try
             Next
-        End If
-        If Verbose_Mode = True Then
-            Console.WriteLine(Name & Func & "Ended")
         End If
     End Sub
 
@@ -245,21 +239,9 @@ Module Interpreter
                     End If
                 End If
             Next
-            If Verbose_Mode = True Then
-                Console.WriteLine(Name & Func & "Finished loading classes")
-            End If
+
         End If
-        Dim i As ULong
-        Do Until Source(i).StartsWith("Main")
-                        If i = Source.Length Then
-                            
-                        Else
-                            
-                        End If
-         Loop
-        If Verbose_Mode = True Then
-            Console.WriteLine(Name & Func & "Ended")
-        End If
+
     End Sub
 
     Private Function IsDeprecated(ByVal Class_Name As String) As Boolean 'Reserved

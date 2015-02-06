@@ -77,13 +77,4 @@ Public Class Cryptography_Class
         End Try
     End Function
 
-    Public Function KeyWords(ByVal Line As String) As Boolean 'Used for every class to determine usable functions
-        If Line.StartsWith("Encrypt") = True Then
-            Return True
-        ElseIf Line.StartsWith("Decrypt") = True Then
-            Return True
-        Else
-            Return False
-        End If
-    End Function
 End Class

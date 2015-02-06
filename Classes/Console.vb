@@ -1,5 +1,5 @@
 ﻿'This handles standard Input Output
-Imports System.Console 'lol
+Imports System.Console
 Class Console_Class
     ReadOnly Name As String = "+Con"
     Dim Func As String = Nothing
@@ -61,19 +61,5 @@ Class Console_Class
             Console.WriteLine(Name & ".BColor Ended")
         End If
         Return 0
-    End Function
-    
-    Public Function KeyWords(ByVal Line As String) As Boolean 'Used for every class to determine usable functions
-        If Line.StartsWith("Say") = True Then
-            Return True
-        ElseIf Line.StartsWith("Read") = True Then
-            Return True
-        ElseIf Line.StartsWith("TColor") = True Then
-            Return True
-        ElseIf Line.StartsWith("BColor") = True Then
-            Return True
-        Else
-            Return False
-        End If
     End Function
 End Class

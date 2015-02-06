@@ -33,12 +33,4 @@ Class Vars_Class
             Return False
         End Try
     End Function
-    
-    Public Function KeyWords(ByVal Line As String) As Boolean 'Used for every class to determine usable functions
-        If Line.StartsWith("Info") = True Then
-            Return True
-        Else
-            Return False
-        End If
-    End Function
 End Class

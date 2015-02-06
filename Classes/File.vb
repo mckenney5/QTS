@@ -4,7 +4,6 @@ Class File_IO_Class
     Dim EC As New Error_Class
     ReadOnly Name As String = "+File"
     Dim Func As String = Nothing
-    
     Public Function Found(ByVal File_Name As String) As Boolean
         Return File.Exists(File_Name)
     End Function
@@ -21,15 +20,5 @@ Class File_IO_Class
             Return False
         End Try
         Return True
-    End Function
-    
-    Public Function KeyWords(ByVal Line As String) As Boolean 'Used for every class to determine usable functions
-        If Line.StartsWith("Found") = True Then
-            Return True
-        ElseIf Line.StartsWith("Write") = True Then
-            Return True
-        Else
-            Return False
-        End If
     End Function
 End Class

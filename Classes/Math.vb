@@ -38,23 +38,7 @@ Class Math_Class
         For i As Integer = Start To Finish
             Console.WriteLine(i)
         Next
+
     End Sub
-    
-    Public Function KeyWords(ByVal Line As String) As Boolean 'Used for every class to determine usable functions
-        If Line.StartsWith("Random") = True Then
-            Return True
-        ElseIf Line.StartsWith("Calculate") = True Then
-            Return True
-        ElseIf Line.StartsWith("Factorial") = True Then
-            Return True
-        ElseIf Line.StartsWith("Count") = True Then
-            Return True
-        Else
-            Return False
-        End If
-    End Function
-    
-    Public Function Round(ByVal Number As Double) As Integer
-        Return Math.Round(Number)
-    End Function
+
 End Class

@@ -76,7 +76,6 @@
     <Compile Include="Classes\Text.vb" />
     <Compile Include="Classes\Vars.vb" />
     <Compile Include="Classes\Debug.vb" />
-    <Compile Include="Classes\TCP.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -100,7 +99,6 @@
     <None Include="Examples\HelloVars.qts" />
     <None Include="Examples\HelloWorld.qts" />
     <None Include="Examples\NoEnter.qts" />
-    <None Include="To Do List.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Examples\" />

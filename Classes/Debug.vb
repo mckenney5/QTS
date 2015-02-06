@@ -3,9 +3,10 @@ Imports System
 Imports System.Console
 Class Debug
     Const Name As String = "Debug"
+    Dim Func As String
     Public Function DWrite(ByVal Info As String) As Boolean
         Console.WriteLine(Info)
-        Return False
+        Return (True)
     End Function
     Public Sub Test()
         Func = ".Test" & vbTab & vbTab

@@ -2,7 +2,7 @@
 Imports System.IO 'until we have an IO class
 Class Error_Class
     Dim CC As New Console_Class
-    Public Errors As ArrayList
+    Public Errors() As Array
     Public LogFile As String = Nothing
     Public Handle As UInteger = 0
     Public Ignore_Warnings As Boolean = False
@@ -11,7 +11,7 @@ Class Error_Class
     ReadOnly Name As String = "+ERR"
     Dim Func As String = Nothing
 
-    Public Function Er(Optional ByVal Desc As String = Nothing, Optional ByVal LineNumber As ULong = Nothing, Optional ByVal AddArray As Boolean = False, Optional ByVal UseBeep As Boolean = False) As Boolean
+    Public Function Er(Optional ByVal Desc As String = Nothing, Optional ByVal LineNumber As ULong = Nothing, Optional ByVal UseBeep As Boolean = False) As Boolean
         Func = "Er" & vbTab & vbTab
         If Verbose_Mode = True Then
             Console.WriteLine(Name & ".Er Called with: (" & Desc & " || " & LineNumber & " || " & UseBeep & ")")
@@ -26,11 +26,8 @@ Class Error_Class
         If UseBeep = True Then
             Console.Beep(100, 100) 'Change this
         End If
-        If AddArray = True Then
-            Errors.Add("Line (" & LineNumber & ") Error: " & Desc)
-        End If
         If Desc = Nothing AndAlso LineNumber = Nothing AndAlso Handle = Nothing Then
-            Console.WriteLine(Name & ".Er Error: An error was thrown without a cause!")
+            Console.Error.WriteLine(Name & ".Er Error: An error was thrown without a cause!")
         ElseIf Handle = 0 AndAlso LineNumber <> 0 Then
             CC.Say("Line (" & LineNumber & ") Error: " & Desc, ConsoleColor.Red)
         ElseIf Handle = 0 Then
@@ -43,13 +40,13 @@ Class Error_Class
             If File.Exists(LogFile) = True Then
                 File.AppendAllText(LogFile, "Line (" & LineNumber & ") Error: " & Desc & vbNewLine)
             Else
-                Console.WriteLine(Name & ".Er Error: The log file can not be found! (" & LogFile & ")")
+                Console.Error.WriteLine(Name & ".Er Error: The log file can not be found! (" & LogFile & ")")
             End If
         ElseIf Handle = 2 Then
             If File.Exists(LogFile) = True Then
                 File.AppendAllText(LogFile, "Error: " & Desc & vbNewLine)
             Else
-                Console.WriteLine(Name & ".Er Error: The log file can not be found! (" & LogFile & ")")
+                Console.Error.WriteLine(Name & ".Er Error: The log file can not be found! (" & LogFile & ")")
             End If
         End If
         If Verbose_Mode = True Then
