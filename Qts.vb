@@ -100,6 +100,7 @@ Module Interpreter
     End Sub
 
     Sub UI() 'User interface
+    While 1
         Func = ".UI" & vbTab & vbTab
         If Verbose_Mode = True Then
             Console.WriteLine(Name & Func & "Called")
@@ -130,7 +131,7 @@ Module Interpreter
                 Console.WriteLine("Invalid command or file not found")
             End If
         End If
-        UI()
+    End While
     End Sub
 
     Private Sub Scan(ByVal FileName As String) 'Checks for errors/warnings
